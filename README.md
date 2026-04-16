@@ -1,2 +1,1 @@
-# Programming: Data Structures and Algorithms
-
+# Программирование
