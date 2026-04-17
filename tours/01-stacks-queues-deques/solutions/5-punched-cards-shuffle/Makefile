@@ -5,17 +5,15 @@ SRC_DIR = src
 OBJ_DIR = build/obj
 BIN_DIR = build/bin
 
-SRCS = $(wildcard $(SRC_DIR)/*.c)
-OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
+.PHONY: all clean run-list run-array run
 
-TARGET = $(BIN_DIR)/main
+all: $(BIN_DIR)/main-array $(BIN_DIR)/main-list
 
-.PHONY: all clean run
+$(BIN_DIR)/main-array: $(OBJ_DIR)/main-array.o | $(BIN_DIR)
+	$(CC) $(CFLAGS) $< -o $@
 
-all: $(TARGET)
-
-$(TARGET): $(OBJS) | $(BIN_DIR)
-	$(CC) $(CFLAGS) $^ -o $@
+$(BIN_DIR)/main-list: $(OBJ_DIR)/main-list.o | $(BIN_DIR)
+	$(CC) $(CFLAGS) $< -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -29,5 +27,10 @@ $(BIN_DIR):
 clean:
 	rm -rf build
 
-run: all
-	./$(TARGET)
+run-list: $(BIN_DIR)/main-list
+	./$(BIN_DIR)/main-list
+
+run-array: $(BIN_DIR)/main-array
+	./$(BIN_DIR)/main-array
+
+run: run-array
