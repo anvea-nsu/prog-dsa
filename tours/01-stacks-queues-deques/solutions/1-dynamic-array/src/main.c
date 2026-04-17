@@ -29,7 +29,7 @@ int main() {
         General[i].mas = (UUG *)malloc( sizeof(UUG) * General[i].size );
     }
 
-    int key, word[10];
+    int key;
     for (int i = 0; i < N; i++) {
         scanf("%d ", &key);
 
