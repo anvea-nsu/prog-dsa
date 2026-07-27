@@ -98,6 +98,7 @@ T11_S09=${T11}/${S}/09-Huffman-compress-binary
 T11_S10=${T11}/${S}/10-Huffman-decompress
 
 GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
 RED='\033[0;31m'
 NC='\033[0m'
 
@@ -110,6 +111,11 @@ for var in "${ENTRIES[@]}"; do
     tour_num="${tour_num%%_*}"
     sol_num="${var#*_S}"
 
+    if [ -f "$path/.gitkeep" ]; then
+        echo -e "${YELLOW}[ SKIP ]${NC} Tour ${tour_num} Solution ${sol_num} (placeholder)"
+        continue
+    fi
+
     make -C "$path" clean > /dev/null 2>&1
 
     if make -C "$path" run > /dev/null 2>&1; then
@@ -117,4 +123,6 @@ for var in "${ENTRIES[@]}"; do
     else
         echo -e "${RED}[ FAILED ]${NC} Tour ${tour_num} Solution ${sol_num}"
     fi
+
+    make -C "$path" clean > /dev/null 2>&1
 done
