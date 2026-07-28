@@ -57,7 +57,7 @@ void get_path(int * path, int * previous, int finish) {
 }
 
 int * find_shortest_time(int ** adj, int * previous, int size, int start, int finish) {
-    int time_int[MAX];
+    int *time_int = (int *)malloc(sizeof(int) * MAX);
     int visited[MAX];
     for (int i = 0; i < size; i++) {
         time_int[i] = INF;
@@ -122,6 +122,7 @@ int main() {
             printf("YES %d ", time_int[requests[i].b - 1]);
             get_path(path, previous, requests[i].b - 1);
         }
+        free(time_int);
     }
 
     /* Clearning the memory */
