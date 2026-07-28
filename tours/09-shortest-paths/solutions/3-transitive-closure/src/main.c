@@ -34,7 +34,7 @@ int main() {
 
     scanf("%d\n", &vertex_count);
 
-    int matrix_adjacencies[SIZE][SIZE] = {0};
+    static int matrix_adjacencies[SIZE][SIZE] = {0};
 
     feel_matrix_adj(matrix_adjacencies);
 
