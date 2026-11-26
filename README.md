@@ -65,9 +65,9 @@ The script runs `make run` in each solution directory and prints one status per 
 
 | Status | Meaning |
 | --- | --- |
-| `[ PASS ]` | The command succeeded. |
-| `[ FAIL ]` | The command failed. The interactive [collision-finding task](tours/02-hashing/tasks/04-find-collision/solution/) has its own runner and no Makefile, so it also reports this status. |
-| `[ SKIP ]` | The task contains a placeholder for a future solution. |
+| `PASS` | The command succeeded. |
+| `FAIL` | The command failed. The interactive [collision-finding task](tours/02-hashing/tasks/04-find-collision/solution/) has its own runner and no Makefile, so it also reports this status. |
+| `SKIP` | The task contains a placeholder for a future solution. |
 
 ## Author
 
