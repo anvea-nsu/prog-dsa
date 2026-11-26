@@ -1,24 +1,24 @@
 # prog-dsa
 
-Second-semester programming coursework in C at Novosibirsk State University. The course covers data structures and algorithms across 11 tours and includes two standalone projects, a command-line calculator and a Huffman archiver.
+Second-semester programming coursework in C at Novosibirsk State University. The course covers data structures and algorithms across 11 tours and includes two standalone projects, a [command-line calculator](tours/01-stacks-queues-deques/projects/calculator/) and a [Huffman archiver](tours/11-archiver/projects/archiver/).
 
 ## Tours
 
 Each tour directory contains the lecture slides (`Presentation.pptx`) and the numbered problem statements (`Task Statements.pdf`).
 
-| Tour | Topic | Highlights |
-| --- | --- | --- |
-| 01 | [Stacks, queues and deques](tours/01-stacks-queues-deques/) | [Command-line calculator](tours/01-stacks-queues-deques/projects/calculator/) using the shunting-yard algorithm |
-| 02 | [Hashing](tours/02-hashing/) | |
-| 03 | [Trees](tours/03-trees/) | |
-| 04 | [Search trees](tours/04-search-trees/) | |
-| 05 | [Heaps](tours/05-heaps/) | |
-| 06 | [Graph representation and topological sorting](tours/06-graph-representation-topological-sort/) | |
-| 07 | [Depth-first search](tours/07-DFS/) | Connected components, strongly connected components, bridges and articulation points |
-| 08 | [Breadth-first search and minimum spanning trees](tours/08-BFS-minimum-spanning-tree/) | |
-| 09 | [Shortest paths](tours/09-shortest-paths/) | |
-| 10 | [Graph cycles and coloring](tours/10-graph-cycles-and-coloring/) | |
-| 11 | [Archiver](tours/11-archiver/) | [Huffman archiver](tours/11-archiver/projects/archiver/) for compressing and extracting files |
+| Tour | Topic |
+| --- | --- |
+| 01 | [Stacks, queues and deques](tours/01-stacks-queues-deques/) |
+| 02 | [Hashing](tours/02-hashing/) |
+| 03 | [Trees](tours/03-trees/) |
+| 04 | [Search trees](tours/04-search-trees/) |
+| 05 | [Heaps](tours/05-heaps/) |
+| 06 | [Graph representation and topological sorting](tours/06-graph-representation-topological-sort/) |
+| 07 | [Depth-first search](tours/07-DFS/) |
+| 08 | [Breadth-first search and minimum spanning trees](tours/08-BFS-minimum-spanning-tree/) |
+| 09 | [Shortest paths](tours/09-shortest-paths/) |
+| 10 | [Graph cycles and coloring](tours/10-graph-cycles-and-coloring/) |
+| 11 | [Archiver](tours/11-archiver/) |
 
 ## Repository layout
 
