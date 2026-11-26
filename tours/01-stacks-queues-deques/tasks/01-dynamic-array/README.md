@@ -1,69 +1,54 @@
-# Tour 01 - Task 1 - Dynamic Array
+# Task 1. Dynamic Array
 
-- **Source:** basic
-- **Input file:** input.txt
-- **Output file:** output.txt
-- **Time limit:** 1 second
-- **Memory limit:** reasonable
+Programming, Assignment 2.1 — Stacks, Queues and Deques
 
-## Problem Statement
+| Field | Value |
+| --- | --- |
+| Source | Basic |
+| Input file | `input.txt` |
+| Output file | `output.txt` |
+| Time limit | 1 second |
+| Memory limit | Reasonable |
 
-Implement a variable-size (dynamic) array that supports appending elements
-without knowing its final size in advance, and use it to solve the problem
-below.
+Implement a variable-size array that lets you append elements without knowing the final size in advance. Use it to solve the following problem.
 
-**Note:** The task must be solved with the following approach specifically
-(other approaches will not be accepted). Create 10^6 dynamic arrays, and put
-every record with key `k` into the `k`-th array. After distributing all
-records, iterate over the arrays in increasing order of `k` and print them.
+## Input
 
-## Input Format
+The first line contains an integer $N$, the number of records ($1 \le N \le 2 \cdot 10^{5}$). Each of the next $N$ lines contains one record, consisting of a key and a value separated by a space. The key is an integer in the range $[0, 10^{6}]$. The value is a string of one to seven lowercase Latin letters.
 
-- Line 1: integer `N` — the number of records (1 ≤ N ≤ 2·10^5).
-- Next `N` lines: one record per line, given as `key value`, separated by a
-  space.
-  - `key` — an integer in the range [0, 10^6].
-  - `value` — a string of 1 to 7 lowercase Latin letters.
+## Output
 
-## Output Format
+Print the same $N$ records in ascending order of key. Records with equal keys must appear in the same order as in the input file.
 
-Print the same `N` records, ordered by increasing key. Records with equal
-keys must keep their original relative order from the input file.
+**Required method.** Only solutions that use the following method will be accepted. Create $10^{6}$ variable-size arrays. Store every record with key $k$ in the $k$-th array. Once all records have been distributed, visit the arrays in increasing order of $k$ and print their contents.
 
 ## Example
 
-```
-input.txt          output.txt
-7                   1 a
-3 qwerty            2 hello
-3 string            3 qwerty
-6 good              3 string
-1 a                 3 ab
-3 ab                5 world
-2 hello             6 good
+**Input**
+
+```text
+7
+3 qwerty
+3 string
+6 good
+1 a
+3 ab
+2 hello
 5 world
+```
+
+**Output**
+
+```text
+1 a
+2 hello
+3 qwerty
+3 string
+3 ab
+5 world
+6 good
 ```
 
 ### Explanation
 
-The example has 7 records with keys 1, 2, 3, 5 and 6, printed in that order.
-Note that there are three records with key 3: `qwerty`, `string`, `ab` — they
-are printed in exactly the order they appear in the input file.
-
-## Approach
-
-Bucket/counting-sort style approach: one dynamic array per possible key value
-(10^6 arrays total), each growing by doubling capacity on overflow. Time:
-O(N), Space: O(N + 10^6).
-
-## Build & Run
-
-```bash
-cd solution
-make
-./build/bin/main
-```
-
-The program reads from `input.txt` and writes to `output.txt` in the current
-directory (paths are hardcoded via `freopen`, no command-line arguments
-needed).
+The seven records have keys 1, 2, 3, 5 and 6, and the output lists them in that order. The three records with key 3 have values `qwerty`, `string` and `ab`. They appear in exactly the same order as in the input.
