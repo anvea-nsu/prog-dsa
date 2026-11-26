@@ -22,9 +22,9 @@ for task in tours/[0-9][0-9]-*/tasks/[0-9][0-9]-*/; do
     make -C "$path" clean > /dev/null 2>&1
 
     if make -C "$path" run > /dev/null 2>&1; then
-        echo -e "${GREEN}[ OK ]${NC} Tour ${tour_num} Solution ${sol_num}"
+        echo -e "${GREEN}[ PASS ]${NC} Tour ${tour_num} Solution ${sol_num}"
     else
-        echo -e "${RED}[ FAILED ]${NC} Tour ${tour_num} Solution ${sol_num}"
+        echo -e "${RED}[ FAIL ]${NC} Tour ${tour_num} Solution ${sol_num}"
     fi
 
     make -C "$path" clean > /dev/null 2>&1

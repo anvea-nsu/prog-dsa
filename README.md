@@ -1,80 +1,74 @@
 # prog-dsa
 
-Coursework repository for the second half of a university Programming course, completed during the second semester — data structures, algorithms, and two larger applied C projects built from scratch.
+Second-semester programming coursework in C at Novosibirsk State University. The course covers data structures and algorithms across 11 tours and includes two standalone projects, a command-line calculator and a Huffman archiver.
 
-Everything here is written in C and built with plain `Makefile`s, no external dependencies beyond a C compiler and `make`.
+## Tours
 
-## Structure
+Each tour directory contains the lecture slides (`Presentation.pptx`) and the numbered problem statements (`Task Statements.pdf`).
 
-The repository is organized into **tours** — one per topic — each containing a set of numbered **tasks**, and occasionally a larger standalone **project** that applies the topic to something more substantial.
+| Tour | Topic | Highlights |
+| --- | --- | --- |
+| 01 | [Stacks, queues and deques](tours/01-stacks-queues-deques/) | [Command-line calculator](tours/01-stacks-queues-deques/projects/calculator/) using the shunting-yard algorithm |
+| 02 | [Hashing](tours/02-hashing/) | |
+| 03 | [Trees](tours/03-trees/) | |
+| 04 | [Search trees](tours/04-search-trees/) | |
+| 05 | [Heaps](tours/05-heaps/) | |
+| 06 | [Graph representation and topological sorting](tours/06-graph-representation-topological-sort/) | |
+| 07 | [Depth-first search](tours/07-DFS/) | Connected components, strongly connected components, bridges and articulation points |
+| 08 | [Breadth-first search and minimum spanning trees](tours/08-BFS-minimum-spanning-tree/) | |
+| 09 | [Shortest paths](tours/09-shortest-paths/) | |
+| 10 | [Graph cycles and coloring](tours/10-graph-cycles-and-coloring/) | |
+| 11 | [Archiver](tours/11-archiver/) | [Huffman archiver](tours/11-archiver/projects/archiver/) for compressing and extracting files |
 
-```
+## Repository layout
+
+```text
 tours/
-  <tour-num>-<topic>/
-    Task Statements.pdf
+  xx-<tour-name>/
     Presentation.pptx
+    Task Statements.pdf
     tasks/
-      <NN>-<task-name>/
+      xx-<task-name>/
         solution/
           src/
           Makefile
-          input.txt      # sample input
-          output.txt     # expected output
-    projects/            # present only for tours with an applied project
+          input.txt
+          output.txt
+    projects/
       <project-name>/
         src/
-        include/
+        Makefile
 ```
 
-Tasks that haven't been implemented yet are kept as empty folders with a `.gitkeep` placeholder, so the full course outline stays visible in the repo even before every solution is filled in.
+`xx` is a two-digit number. To find the solution for task 3 in a tour’s PDF, open the directory starting with `03-` under that tour’s `tasks/` directory. A task awaiting implementation contains a `.gitkeep` placeholder. Some tasks use binary input or output files (`.bin`). Tours 01 and 11 also have a `projects/` directory.
 
-## Topics
+## Run one solution
 
-| Tour | Topic | Highlights |
-|---|---|---|
-| 01 | Stacks, Queues & Deques | includes a full command-line **calculator** project (shunting-yard algorithm) |
-| 02 | Hashing | |
-| 03 | Trees | |
-| 04 | Search Trees | |
-| 05 | Heaps | |
-| 06 | Graph Representation & Topological Sort | |
-| 07 | Depth-First Search (DFS) | connected components, SCC, bridges, articulation points |
-| 08 | Breadth-First Search & Minimum Spanning Tree | |
-| 09 | Shortest Paths | |
-| 10 | Graph Cycles & Coloring | |
-| 11 | Archiver | includes a from-scratch **archiver** project using Huffman coding (encode / decode / extract / delete / info) |
+Most solutions and both standalone projects use a C compiler and GNU Make. From the repository root, try the dynamic array task:
 
-## Building & Running
-
-Most solutions and both projects use a local `Makefile`. For example:
-
-```bash
+```sh
 cd tours/01-stacks-queues-deques/tasks/01-dynamic-array/solution
-make        # build
-make run    # build (if needed) and run
-make clean  # remove build artifacts
+make run
 ```
 
-To build and run **every** solution in the repository at once and get a pass/fail/skip summary:
+This example reads `input.txt` and writes `output.txt` in the solution directory. Use `make` to build the program and `make clean` to remove build artifacts.
 
-```bash
+## Check all tasks
+
+From the repository root, run the Bash script:
+
+```sh
 ./scripts/run-tests.sh
 ```
 
-This prints a colored `[ OK ]` / `[ FAILED ]`/ `[ SKIP ]` line per solution, e.g.:
+The script runs `make run` in each solution directory and prints one status per task. The status reflects the command’s exit code. The script itself does not compare output files.
 
-```
-[ OK ] Tour 01 Solution 01
-[ OK ] Tour 01 Solution 02
-[ SKIP ] Tour 02 Solution 06 (placeholder)
-```
-
-## Tech Stack
-
-- **Language:** C
-- **Build:** GNU Make, GCC (`-Wall -Wextra`)
-- **Tooling:** Bash (`scripts/run-tests.sh`) for automated build/run verification across the whole repo
+| Status | Meaning |
+| --- | --- |
+| `[ PASS ]` | The command succeeded. |
+| `[ FAIL ]` | The command failed. The interactive [collision-finding task](tours/02-hashing/tasks/04-find-collision/solution/) has its own runner and no Makefile, so it also reports this status. |
+| `[ SKIP ]` | The task contains a placeholder for a future solution. |
 
 ## Author
 
-Andrew Veretennikov — Novosibirsk State University (NSU), Faculty of Information Technologies
+Andrew Veretennikov — Faculty of Information Technologies, Novosibirsk State University (NSU)
