@@ -59,6 +59,7 @@ O(N), Space: O(N + 10^6).
 ## Build & Run
 
 ```bash
+cd solution
 make
 ./build/bin/main
 ```

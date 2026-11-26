@@ -6,17 +6,20 @@ Everything here is written in C and built with plain `Makefile`s, no external de
 
 ## Structure
 
-The repository is organized into **tours** — one per topic — each containing a set of small, focused **solutions**, and occasionally a larger standalone **project** that applies the topic to something more substantial.
+The repository is organized into **tours** — one per topic — each containing a set of numbered **tasks**, and occasionally a larger standalone **project** that applies the topic to something more substantial.
 
 ```
 tours/
   <tour-num>-<topic>/
-    solutions/
-      <solution-num>-<task-name>/
-        src/
-        Makefile
-        input.txt        # sample input
-        output.txt       # expected output
+    Task Statements.pdf
+    Presentation.pptx
+    tasks/
+      <NN>-<task-name>/
+        solution/
+          src/
+          Makefile
+          input.txt      # sample input
+          output.txt     # expected output
     projects/            # present only for tours with an applied project
       <project-name>/
         src/
@@ -43,10 +46,10 @@ Tasks that haven't been implemented yet are kept as empty folders with a `.gitke
 
 ## Building & Running
 
-Every solution and project shares the same `Makefile` interface:
+Most solutions and both projects use a local `Makefile`. For example:
 
 ```bash
-cd tours/<tour-num>-<topic>/solutions/<solution-num>-<task-name>
+cd tours/01-stacks-queues-deques/tasks/01-dynamic-array/solution
 make        # build
 make run    # build (if needed) and run
 make clean  # remove build artifacts
@@ -55,7 +58,7 @@ make clean  # remove build artifacts
 To build and run **every** solution in the repository at once and get a pass/fail/skip summary:
 
 ```bash
-./run_test.sh
+./scripts/run-tests.sh
 ```
 
 This prints a colored `[ OK ]` / `[ FAILED ]`/ `[ SKIP ]` line per solution, e.g.:
@@ -63,14 +66,14 @@ This prints a colored `[ OK ]` / `[ FAILED ]`/ `[ SKIP ]` line per solution, e.g
 ```
 [ OK ] Tour 01 Solution 01
 [ OK ] Tour 01 Solution 02
-[ FAILED ] Tour 02 Solution 06
+[ SKIP ] Tour 02 Solution 06 (placeholder)
 ```
 
 ## Tech Stack
 
 - **Language:** C
 - **Build:** GNU Make, GCC (`-Wall -Wextra`)
-- **Tooling:** Bash (`run_test.sh`) for automated build/run verification across the whole repo
+- **Tooling:** Bash (`scripts/run-tests.sh`) for automated build/run verification across the whole repo
 
 ## Author
 
