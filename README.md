@@ -40,7 +40,7 @@ tours/
         Makefile
 ```
 
-`xx` is a two-digit number. To find the solution for task 3 in a tour’s PDF, open the directory starting with `03-` under that tour’s `tasks/` directory. A task awaiting implementation contains a `.gitkeep` placeholder. Some tasks use binary input or output files (`.bin`). Tours 01 and 11 also have a `projects/` directory.
+`xx` is a two-digit number. A task awaiting implementation contains a `.gitkeep` placeholder. Some tasks use binary input or output files (`.bin`). Tours 01 and 11 also have a `projects/` directory.
 
 ## Run one solution
 
